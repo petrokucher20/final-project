@@ -1,0 +1,53 @@
+<!-- shop.html -->
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Магазин</title>
+  <link rel="stylesheet" href="style.css">>
+</head>
+<body>
+  <header><a href="index.html">&#8592; Назад на головну</a></header>
+  <main>
+    <h1>Магазин</h1>
+    <p>Оберіть букет, який принесе радість вам або вашим близьким. В асортименті — троянди, півонії, сухоцвіти та багато іншого.</p>
+
+    <section class="products">
+      <div class="product-list">
+        <div class="product">
+          <img src="rose-bouquets.png" alt="Букети з троянд">
+          <p>Букети з троянд</p>
+          <p class="price">₴450</p>
+          <button onclick="addToCart('Букети з троянд', 450)">Додати до кошика</button>
+        </div>
+        <div class="product">
+          <img src="peony-bouquets.png" alt="Букети з півоній">
+          <p>Букети з півоній</p>
+          <p class="price">₴530</p>
+          <button onclick="addToCart('Букети з півоній', 530)">Додати до кошика</button>
+        </div>
+        <div class="product">
+          <img src="dried-flowers.png" alt="Сухоцвіти">
+          <p>Сухоцвіти</p>
+          <p class="price">₴390</p>
+          <button onclick="addToCart('Сухоцвіти', 390)">Додати до кошика</button>
+        </div>
+        <div class="product">
+          <img src="spring-mix.png" alt="Весняний мікс">
+          <p>Весняний мікс</p>
+          <p class="price">₴480</p>
+          <button onclick="addToCart('Весняний мікс', 480)">Додати до кошика</button>
+        </div>
+      </div>
+      <div class="cart-alert" id="cart-alert"></div>
+      <div class="cart-summary" id="cart-summary">
+        <h3>Кошик</h3>
+        <ul id="cart-items"></ul>
+        <p><strong>Сума: ₴<span id="total-price">0</span></strong></p>
+        <button class="checkout-btn" onclick="checkout()">Оформити замовлення</button>
+      </div>
+    </section>
+  </main>
+  <script src="script.js" defer></script>
+</body>
+</html>

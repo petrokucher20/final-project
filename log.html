@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Вхід до профілю</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    main {
+      padding: 2rem;
+      max-width: 400px;
+      margin: auto;
+    }
+    form {
+      background-color: #fff8f0;
+      padding: 2rem;
+      border-radius: 12px;
+      border: 2px solid #4a3f35;
+    }
+    label, input {
+      display: block;
+      width: 100%;
+      margin-bottom: 1rem;
+    }
+    input {
+      padding: 0.5rem;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background-color: #4a3f35;
+      color: white;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Вхід до профілю</h1>
+    <form onsubmit="return loginUser(event)">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required>
+      <label for="password">Пароль</label>
+      <input type="password" id="password" name="password" required>
+      <button type="submit">Увійти</button>
+    </form>
+  </main>
+
+  <script>
+    function loginUser(event) {
+      event.preventDefault();
+      const enteredEmail = document.getElementById('email').value;
+      const enteredPassword = document.getElementById('password').value;
+      const storedUser = JSON.parse(localStorage.getItem('userProfile'));
+
+      if (!storedUser) {
+        alert("Користувача не знайдено. Спочатку зареєструйтесь.");
+        window.location.href = 'reg.html';
+        return false;
+      }
+
+      if (storedUser.email === enteredEmail && storedUser.password === enteredPassword) {
+        alert(`Вітаємо, ${storedUser.username}! Ви увійшли до профілю.`);
+        window.location.href = 'index.html';
+      } else {
+        alert("Невірний email або пароль. Спробуйте ще раз.");
+      }
+    }
+  </script>
+</body>
+</html>
