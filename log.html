@@ -49,18 +49,23 @@
   </main>
 
   <script>
+    //1. Отримання даних з форми
     function loginUser(event) {
       event.preventDefault();
       const enteredEmail = document.getElementById('email').value;
       const enteredPassword = document.getElementById('password').value;
+
+      //2. Завантаження збереженого профілю
       const storedUser = JSON.parse(localStorage.getItem('userProfile'));
 
+      //3. Перевірка наявності користувача
       if (!storedUser) {
         alert("Користувача не знайдено. Спочатку зареєструйтесь.");
         window.location.href = 'reg.html';
         return false;
       }
 
+      //4. Перевірка логіна та пароля
       if (storedUser.email === enteredEmail && storedUser.password === enteredPassword) {
         alert(`Вітаємо, ${storedUser.username}! Ви увійшли до профілю.`);
         window.location.href = 'index.html';
